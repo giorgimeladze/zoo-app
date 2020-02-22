@@ -1,5 +1,6 @@
 class AnimalsController < ApplicationController
   before_action :set_animal, only: [:show,:edit,:update,:destroy]
+
   def new
     @animal = Animal.new
   end
