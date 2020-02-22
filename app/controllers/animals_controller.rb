@@ -18,7 +18,7 @@ class AnimalsController < ApplicationController
   end
 
   def index
-    @animals = Animal.all
+    @animals = current_user.animals
   end
 
   def show
@@ -51,5 +51,6 @@ class AnimalsController < ApplicationController
 
   def animal_params
     params.require(:animal).permit(:specie,:color,:age,:quantity,:sex)
+  end
 
 end
