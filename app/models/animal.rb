@@ -6,15 +6,18 @@ class Animal < ApplicationRecord
   validates :sex, presence: true
   validates :quantity, presence: true, numericality: {only_integer: true, greater_than: 0}
 
-  def self.search_specie(text)
-    Animal.all
+  def self.search_specie(text, user)
+    text = text.downcase.strip
+    user.animals.where("specie like ?", "%#{text}%").to_a
   end
 
-  def self.search_color(text)
-
+  def self.search_color(text, user)
+    text = text.downcase.strip
+    user.animals.where("color like ?", "%#{text}%").to_a
   end
 
-  def self.search_sex(text)
-
+  def self.search_sex(text, user)
+    text = text.downcase.strip
+    user.animals.where("sex like ?", text)
   end
 end

@@ -1,1 +1,4 @@
+<% if @animals.blank? %>
+  <p> There is nothing</p>
+<% end %>
 <%= render 'listing', animals: @animals %>

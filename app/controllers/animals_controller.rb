@@ -14,11 +14,11 @@ class AnimalsController < ApplicationController
       render :search
     else
       if @specie == "specie"
-        @animals = Animal.search_specie
+        @animals = Animal.search_specie(@input, current_user)
       elsif @specie == "color"
-        @animals = Animal.search_color
+        @animals = Animal.search_color(@input, current_user)
       else
-        @animals = Animal.search_sex
+        @animals = Animal.search_sex(@input, current_user)
       end
     end
   end
