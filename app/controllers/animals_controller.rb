@@ -1,6 +1,28 @@
 class AnimalsController < ApplicationController
   before_action :set_animal, only: [:show,:edit,:update,:destroy]
 
+  def search
+
+  end
+
+  def result
+    @specie = params[:category]
+    @input = params[:q]
+
+    if @input.blank?
+      flash[:notice] = "Can't be blank"
+      render :search
+    else
+      if @specie == "specie"
+        @animals = Animal.search_specie
+      elsif @specie == "color"
+        @animals = Animal.search_color
+      else
+        @animals = Animal.search_sex
+      end
+    end
+  end
+
   def new
     @animal = Animal.new
   end
@@ -19,7 +41,7 @@ class AnimalsController < ApplicationController
   end
 
   def index
-    @animals = current_user.animals
+    @animals = current_user.animals.sort_by { |animal| -animal.quantity}
   end
 
   def show

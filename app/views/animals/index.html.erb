@@ -2,30 +2,8 @@
 
 <h1 align="center">Your precious ZOO</h1>
 
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th scope="col">Specie</th>
-      <th scope="col">Age</th>
-      <th scope="col">Color</th>
-      <th scope="col">Sex</th>
-      <th scope="col">Quantity</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @animals.each do |animal| %>
-      <tr>
-        <th scope="row"><%= animal.specie %></th>
-        <td><%= animal.age %></td>
-        <td><%= animal.color %></td>
-        <td><%= animal.sex %></td>
-        <td><%= animal.quantity %></td>
-        <td><%= link_to 'Show', animal %></td>
-        <td><%= link_to 'Edit', edit_animal_path(animal) %></td>
-        <td><%= link_to 'Remove', animal, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-  <%= link_to 'Add Animal', new_animal_path,
-                                class: "btn btn-xs btn-success" %>
-</table>
+
+<%= render 'listing', animals: @animals %>
+
+<%= link_to 'Add Animal', new_animal_path,
+                              class: "btn btn-xs btn-success" %>

@@ -1,0 +1,41 @@
+<h1 align="center">Search Engine</h1>
+
+<%= form_tag result_path, method: :get do %>
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <%= button_tag type: :submit, class: "btn btn-success" do %>
+      <%= "Search Specie" %>
+    <% end %>
+  </div>
+   <input class="form-control mr-sm-2" name="q" type="search" placeholder="" aria-label="Search">
+   <%= hidden_field_tag :category, "specie" %>
+</div>
+<% end %>
+
+<br>
+
+<%= form_tag result_path, method: :get do %>
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <%= button_tag type: :submit, class: "btn btn-success" do %>
+      <%= "Search Color" %>
+    <% end %>
+  </div>
+   <input class="form-control mr-sm-2" name="q" type="search" placeholder="" aria-label="Search">
+   <%= hidden_field_tag :category, "color" %>
+</div>
+<% end %>
+
+<br>
+
+<%= form_tag result_path, method: :get do %>
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <%= button_tag type: :submit, class: "btn btn-success" do %>
+      <%= "Search Sex" %>
+    <% end %>
+  </div>
+   <input class="form-control mr-sm-2" name="q" type="search" placeholder="" aria-label="Search">
+   <%= hidden_field_tag :category, "sex" %>
+</div>
+<% end %>
