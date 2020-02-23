@@ -1,4 +1,13 @@
 <% if @animals.blank? %>
   <p> There is nothing</p>
 <% end %>
+<div align="center">
+  <%= will_paginate %>
+</div>
 <%= render 'listing', animals: @animals %>
+<div align="center">
+  <%= will_paginate %>
+</div>
+
+<%= link_to "Back to search", search_path %>
+<%= link_to "Animal listing", animals_path %>

@@ -14,11 +14,11 @@ class AnimalsController < ApplicationController
       render :search
     else
       if @specie == "specie"
-        @animals = Animal.search_specie(@input, current_user)
+        @animals = Animal.search_specie(@input, current_user).paginate(page: params[:page], per_page: 7)
       elsif @specie == "color"
-        @animals = Animal.search_color(@input, current_user)
+        @animals = Animal.search_color(@input, current_user).paginate(page: params[:page], per_page: 7)
       else
-        @animals = Animal.search_sex(@input, current_user)
+        @animals = Animal.search_sex(@input, current_user).paginate(page: params[:page], per_page: 7)
       end
     end
   end
@@ -41,7 +41,8 @@ class AnimalsController < ApplicationController
   end
 
   def index
-    @animals = current_user.animals.sort_by { |animal| -animal.quantity}
+    @animals = current_user.animals.to_a.sort_by { |animal| -animal.quantity}
+    @animals = @animals.paginate(page: params[:page], per_page: 7)
   end
 
   def show

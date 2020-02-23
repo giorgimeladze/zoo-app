@@ -18,6 +18,6 @@ class Animal < ApplicationRecord
 
   def self.search_sex(text, user)
     text = text.downcase.strip
-    user.animals.where("sex like ?", text)
+    user.animals.where("sex like ?", text).to_a
   end
 end

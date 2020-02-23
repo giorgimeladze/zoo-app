@@ -2,8 +2,13 @@
 
 <h1 align="center">Your precious ZOO</h1>
 
-
+<div align="center">
+  <%= will_paginate %>
+</div>
 <%= render 'listing', animals: @animals %>
+<div align="center">
+  <%= will_paginate %>
+</div>
 
 <%= link_to 'Add Animal', new_animal_path,
                               class: "btn btn-xs btn-success" %>
