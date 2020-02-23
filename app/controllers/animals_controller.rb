@@ -7,10 +7,11 @@ class AnimalsController < ApplicationController
 
   def create
     @animal = Animal.new(animal_params)
+    @animal.user = current_user
 
     if @animal.save
       flash[:notice] = "Animal was successfully added"
-      redirect_to root_path
+      redirect_to animals_path
     else
       flash[:danger] = "Something went wrong"
       render :new

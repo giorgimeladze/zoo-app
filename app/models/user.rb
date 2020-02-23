@@ -13,4 +13,9 @@ class User < ApplicationRecord
   def last_name
     self.name.split.last
   end
+
+  def full_name
+    return "#{first_name} #{last_name}" if first_name || last_name
+    "Zoo Keeper"
+  end
 end

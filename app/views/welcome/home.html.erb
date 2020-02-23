@@ -1,10 +1,11 @@
 <h1 align="center">Welcome to the private Zoo website</h1>
-
-<%= link_to 'About', about_path %>
-<% unless current_user %>
-  <%= link_to 'Log in', new_user_session_path %>
-  <%= link_to 'Register', new_user_registration_path %>
-<% else %>
-  <%= link_to 'Log out', destroy_user_session_path, method: :delete %>
-  <%= link_to 'Zoo', animals_path %>
+<% if current_user %>
+  <h3 align="center"><%= current_user.full_name %></h3>
+  <div class="container">
+    <%= link_to 'View Your Zoo', animals_path, class: "zoo-titler" %>
+  </div>
 <% end %>
+
+<div class= "center jumbotron">
+
+</div>
