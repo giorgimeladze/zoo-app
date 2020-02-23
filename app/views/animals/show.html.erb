@@ -1,0 +1,26 @@
+<p>
+  <strong>Specie:</strong>
+  <%= @animal.specie %>
+</p>
+
+<p>
+  <strong>Age:</strong>
+  <%= @animal.age %>
+</p>
+
+<p>
+  <strong>Color:</strong>
+  <%= @animal.color %>
+</p>
+
+<p>
+  <strong>Sex:</strong>
+  <%= @animal.sex %>
+</p>
+
+<p>
+  <strong>Quantity:</strong>
+  <%= @animal.quantity %>
+</p>
+<%= link_to 'Edit', edit_animal_path(@animal) %> |
+<%= link_to 'Back', animals_path %>
